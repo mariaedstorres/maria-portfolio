@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maria Eduarda Torres — Creating My Space in Tech ✨</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
+
+  <!-- Ícones  -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Estilos principais -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — barra de navegação fixa no topo
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <!-- Monograma -->
+      <span class="logo-initial">M</span><span class="logo-dot">.</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projetos</a></li>
+      <li><a href="#beyond">Eu Além do Código</a></li>
+      <li><a href="#quotes">Frases</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Botão de alternar tema escuro/claro -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+        <i data-lucide="moon" class="icon-moon"></i>
+        <i data-lucide="sun" class="icon-sun"></i>
+      </button>
+
+      <!-- Botão hamburguer para mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO — primeira impressão
+  ============================================================ -->
+  <section class="hero" id="hero">
+
+    <!-- Elementos decorativos de fundo -->
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="hero-blob blob-3"></div>
+
+    <div class="hero-content">
+      <!-- Tag pequena acima do nome -->
+      <span class="hero-tag fade-in-up delay-1">Student • Future Developer • Building My Path ✨</span>
+
+      <!-- Nome principal  -->
+      <h1 class="hero-name fade-in-up delay-2">
+        Maria<br />
+        <em>Torres</em>
+      </h1>
+
+      <!-- Frase  -->
+      <p class="hero-phrase fade-in-up delay-3">
+        Building my place in tech<br />
+        Turning curiosity into knowledge and ideas into projects.
+      </p>
+
+      <!-- Botões de ação -->
+      <div class="hero-cta fade-in-up delay-4">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Decoração lateral: linha vertical + texto rotacionado -->
+    <div class="hero-side-text">
+      <span>Tech • Systems • ERP</span>
+    </div>
+
+    <!-- Seta de scroll para baixo -->
+    <a href="#about" class="scroll-arrow" aria-label="Rolar para baixo">
+      <i data-lucide="chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       ABOUT ME — história e transição profissional
+  ============================================================ -->
+  <section class="section about" id="about">
+    <div class="container">
+
+      <!-- Cabeçalho da seção -->
+      <div class="section-header">
+        <span class="section-label">01 — Sobre Mim</span>
+        <h2 class="section-title">The Person Behind the Code</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Cartão foto / avatar decorativo -->
+        <div class="about-visual reveal-left">
+          <div class="about-card-wrapper">
+            <div class="about-avatar">
+            
+              <img src="foto.jpg" alt="Foto de Maria Eduarda Torres" class="avatar-img" /> 
+        
+              </div>
+              <!-- Badge flutuante -->
+              <div class="avatar-badge">
+                <i data-lucide="code-2"></i>
+                <span>ADS Student</span>
+              </div>
+            </div>
+            <!-- Estatísticas -->
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years in Industry</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Always Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto da minha história -->
+        <div class="about-text reveal-right">
+          <p class="about-intro">
+            Hello Word! I'm Maria Torres, currently studying <strong>Systems Analysis and Development</strong> and transitioning from Industrial Mechanics into the world of Technology.
+          </p>
+          <p>
+            I believe growth begins with the courage to reinvent yourself. My journey started in industrial mechanics, where I learned that precision, discipline, and attention to detail can transform any process. That analytical mindset is what first led me to programming.
+          </p>
+          <p>
+            Today, I’m building my path in technology, bringing with me the discipline, resilience, and curiosity that shaped who I am. Every challenge, study session, and new project is part of this journey.
+          <p class="about-highlight">
+            "Mudar de área não é recomeçar do zero.<br/>
+            É trazer tudo que você já é para um novo caminho."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS — linguagens e ferramentas
+  ============================================================ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">02 — Habilidades</span>
+        <h2 class="section-title">Tools in <em>My Toolbox</em></h2>
+      </div>
+
+      <!-- Grupos de skills -->
+      <div class="skills-layout">
+
+        <!-- Linguagens -->
+        <div class="skill-group reveal-up">
+          <h3 class="skill-group-title">
+            <i data-lucide="code"></i> Linguagens
+          </h3>
+          <div class="skill-pills">
+            <div class="skill-pill">
+              <span class="pill-icon">🐍</span>
+              <span>Python</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 60%"></div></div>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">☕</span>
+              <span>Java</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 45%"></div></div>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">🌐</span>
+              <span>HTML & CSS</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 70%"></div></div>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">⚡</span>
+              <span>JavaScript</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 40%"></div></div>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">🗄️</span>
+              <span>SQL</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 50%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="skill-group reveal-up delay-1">
+          <h3 class="skill-group-title">
+            <i data-lucide="wrench"></i> Tools
+          </h3>
+          <div class="skill-pills">
+            <div class="skill-pill">
+              <span class="pill-icon">🐙</span>
+              <span>Git & GitHub</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 55%"></div></div>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">💻</span>
+              <span>VS Code</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 80%"></div></div>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">📊</span>
+              <span>Excel</span>
+              <div class="pill-bar"><div class="pill-fill" style="--fill: 50%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Em Aprendizado -->
+        <div class="skill-group reveal-up delay-2">
+          <h3 class="skill-group-title">
+            <i data-lucide="sparkles"></i> Currently Learning
+          </h3>
+          <div class="learning-tags">
+            <span class="learning-tag">Programming Logic</span>
+            <span class="learning-tag">Object-Oriented Programming</span>
+            <span class="learning-tag">Web Development</span>
+            <span class="learning-tag">Algorithms</span>
+            <span class="learning-tag">Clean Code</span>
+          </div>
+        </div>
+
+        <!-- Da Mecânica -->
+        <div class="skill-group reveal-up delay-3">
+          <h3 class="skill-group-title">
+            <i data-lucide="settings"></i> From Industrial Mechanics
+          </h3>
+          <div class="mechanic-skills">
+            <div class="mechanic-tag">Production Planning</div>
+            <div class="mechanic-tag">BOM Management</div>
+            <div class="mechanic-tag">Technical Documentation</div>
+            <div class="mechanic-tag">Process Improvement</div>
+            <div class="mechanic-tag">Problem Solving</div>
+            <div class="mechanic-tag">ERP & Item Management</div>
+            <div class="mechanic-tag">Quality Processes</div>
+            <div class="mechanic-tag">AutoCAD</div>
+            <div class="mechanic-tag">PDM / PLM Systems</div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECTS — portfólio de projetos
+  ============================================================ -->
+  <section class="section projects" id="projects">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">03 — Projetos</span>
+        <h2 class="section-title">Projects & Growth</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Projeto 1 -->
+        <article class="project-card reveal-up">
+          <div class="project-header">
+            <div class="project-emoji">💖</div>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub do projeto" class="project-link">
+                <i data-lucide="github"></i>
+              </a>
+            </div>
+          </div>
+
+          <h3 class="project-title">Personal Portfolio Website</h3>
+
+          <p class="project-desc">
+            My first web development project. I created this portfolio to share my journey, my transition into technology, and document my growth as a developer.
+          </p>
+
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </article>
+
+        <!-- Projeto 2 -->
+        <article class="project-card reveal-up delay-1">
+          <div class="project-header">
+            <div class="project-emoji">🚀</div>
+          </div>
+
+          <h3 class="project-title">Next Project Loading...</h3>
+
+          <p class="project-desc">
+           More projects coming soon as I continue learning and growing in tech.
+          </p>
+
+          <div class="project-tags">
+            <span>Learning</span>
+            <span>Growth</span>
+            <span>Consistency</span>
+          </div>
+        </article>
+
+        <!-- Card final -->
+        <article class="project-card project-card--soon reveal-up delay-2">
+          <div class="project-soon-inner">
+            <div class="soon-icon">✨</div>
+            <h3>Always Building</h3>
+            <p>This is just the beginning.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BEYOND CODE — personalidade 
+  ============================================================ -->
+  <section class="section beyond" id="beyond">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">04 — Além do Código</span>
+        <h2 class="section-title">More About <em>Me</em></h2>
+      </div>
+
+      <div class="beyond-grid">
+
+        <!-- Card: Bela  -->
+        <div class="beyond-card beyond-card--bela reveal-up">
+          <div class="beyond-card-top">
+            <span class="beyond-emoji">🐾</span>
+            <span class="beyond-tag">Official Mascot</span>
+          </div>
+          <h3>Bela</h3>
+          <img src="bela.jpg" alt="Bela, mascote do portfólio" class="bela-img">
+          <p>My dog and study companion. She always finds her way to my lap whenever I open my laptop. A daily source of joy and inspiration.</p>
+          <div class="beyond-footer">
+            <span>🐕 The Best CTO I've Ever Had</span>
+          </div>
+        </div>
+
+        <!-- Card: Livros -->
+        <div class="beyond-card beyond-card--books reveal-up delay-1">
+          <div class="beyond-card-top">
+            <span class="beyond-emoji">📚</span>
+            <span class="beyond-tag">Favorite Reads</span>
+          </div>
+          <h3>Books That Inspire Me</h3>
+          <ul class="book-list">
+            <li>📖 The Daily Stoic — Ryan Holiday</li>
+            <li>📖 The Gifts of Imperfection — Brené Brown</li>
+            <li>📖 Mindset — Carol Dweck</li>
+            <li>📖 The Midnight Library - Matt Haig</li>
+          </ul>
+          
+        </div>
+
+         <!-- Card: Gym -->
+        <div class="beyond-card beyond-card--gym reveal-up delay-2">
+         <div class="beyond-card-top">
+          <span class="beyond-emoji">🏋️</span>
+          <span class="beyond-tag">Discipline</span>
+        </div>
+         <h3>Gym</h3>
+        <p>The gym reminds me every day that growth doesn’t happen overnight, it is built through consistency.</p>
+        <div class="beyond-footer">
+          <span>💪 Strong Body, Strong Mind</span>
+       </div>
+      </div>
+
+        <!-- Card: Música -->
+        <div class="beyond-card beyond-card--music reveal-up delay-3">
+          <div class="beyond-card-top">
+            <span class="beyond-emoji">🎵</span>
+            <span class="beyond-tag">Favorite Artist</span>
+          </div>
+          <h3>Music</h3>
+          <p>Music has always been part of who I am, and one artist I’ve admired for years is Rihanna.</p>
+          <div class="music-note">
+            <span>🎤 Rihanna</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAVORITE QUOTES — frases que me inspiram
+  ============================================================ -->
+  <section class="section quotes" id="quotes">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">05 — Frases Favoritas</span>
+        <h2 class="section-title">Words That <em>Inspire Me</em></h2>
+      </div>
+
+      <div class="quotes-grid">
+
+        <blockquote class="quote-card reveal-up">
+          <p>"Acreditar em si mesmo é essencial para qualquer sonho."</p>
+          <footer>— Autor desconhecido</footer>
+        </blockquote>
+
+        <blockquote class="quote-card reveal-up delay-1">
+          <p>"Be the change you wish to see in the world."</p>
+          <footer>— Mahatma Gandhi</footer>
+        </blockquote>
+
+        <blockquote class="quote-card reveal-up delay-2">
+          <p>"First, solve the problem. Then, write the code."</p>
+          <footer>— John Johnson</footer>
+        </blockquote>
+
+        <blockquote class="quote-card reveal-up delay-3">
+          <p>"I have not failed. I've just found 10,000 ways that won't work"</p>
+          <footer>— Thomas Edison</footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT — contato e redes sociais
+  ============================================================ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">06 — Contato</span>
+        <h2 class="section-title">Let's <em>Connect</em></h2>
+      </div>
+
+      <div class="contact-wrapper reveal-up">
+        <p class="contact-intro">
+           Open to opportunities, collaborations, and new connections. 🌸
+        </p>
+
+        <div class="contact-links">
+
+          <!-- GitHub -->
+          <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon">
+              <i data-lucide="github"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">@seu-usuario</span>
+            </div>
+            <i data-lucide="arrow-up-right" class="contact-arrow"></i>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/mariaedstorres/" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon">
+              <i data-lucide="linkedin"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">Maria Torres</span>
+            </div>
+            <i data-lucide="arrow-up-right" class="contact-arrow"></i>
+          </a>
+
+          <!-- E-mail-->
+          <a href="mailto:marisedstorres@gmail.com" class="contact-card">
+            <div class="contact-icon">
+              <i data-lucide="mail"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">E-mail</span>
+              <span class="contact-value">marisedstorres@gmail.com</span>
+            </div>
+            <i data-lucide="arrow-up-right" class="contact-arrow"></i>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       rodapé
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Made with <span class="heart">♡</span> by <strong>Maria Torres</strong> — 2026
+      </p>
+      <p class="footer-sub">A work in progress, just like me 🌸</p>
+    </div>
+  </footer>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

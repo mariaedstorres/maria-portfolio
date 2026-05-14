@@ -1,0 +1,1467 @@
+/* ================================================================
+   MARIA EDUARDA — PORTFÓLIO PESSOAL
+   style.css — Estilos completos com dark mode e responsividade
+   ================================================================
+   
+   ÍNDICE:
+   1. Variáveis CSS (cores, fontes, espaçamentos)
+   2. Reset e base
+   3. Utilitários
+   4. Navbar
+   5. Hero
+   6. About
+   7. Skills
+   8. Projects
+   9. Beyond Code
+   10. Quotes
+   11. Contact
+   12. Footer
+   13. Animações
+   14. Dark Mode
+   15. Responsivo (mobile)
+================================================================ */
+
+
+/* ================================================================
+   1. VARIÁVEIS CSS — muda aqui e muda no site inteiro!
+================================================================ */
+:root {
+  /* Paleta de cores — modo claro */
+  --pink:       #F8DDE6;        /* Rosa bebê principal */
+  --pink-deep:  #e8b4c8;        /* Rosa mais profundo para destaques */
+  --pink-soft:  #fdf0f5;        /* Rosa levíssimo para fundos */
+  --nude:       #F5EDE8;        /* Nude claro */
+  --cream:      #FDFAF8;        /* Off-white quente */
+  --white:      #FFFFFF;
+  --gray-100:   #F7F3F5;
+  --gray-200:   #EDE6EA;
+  --gray-400:   #B8A8B2;
+  --gray-600:   #8A7882;
+  --gray-800:   #4A3D44;
+  --gray-900:   #2C2128;
+
+  /* Cores semânticas */
+  --bg:         var(--cream);
+  --surface:    var(--white);
+  --surface-2:  var(--gray-100);
+  --border:     var(--gray-200);
+  --text:       var(--gray-800);
+  --text-muted: var(--gray-600);
+  --accent:     var(--pink-deep);
+  --accent-bg:  var(--pink-soft);
+
+  /* Tipografia */
+  --font-display: 'Cormorant Garamond', Georgia, serif;   /* Títulos elegantes */
+  --font-body:    'DM Sans', system-ui, sans-serif;         /* Corpo legível */
+
+  /* Espaçamentos */
+  --space-xs:   0.5rem;
+  --space-sm:   1rem;
+  --space-md:   2rem;
+  --space-lg:   4rem;
+  --space-xl:   8rem;
+
+  /* Bordas */
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  24px;
+  --radius-full: 999px;
+
+  /* Sombras */
+  --shadow-sm:  0 2px 12px rgba(200, 140, 160, 0.08);
+  --shadow-md:  0 8px 32px rgba(200, 140, 160, 0.14);
+  --shadow-lg:  0 20px 60px rgba(200, 140, 160, 0.18);
+
+  /* Transições */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 70px;
+}
+
+
+/* ================================================================
+   2. RESET E BASE
+================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;          /* Scroll suave ao clicar nos links */
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  overflow-x: hidden;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-family: inherit;
+}
+
+
+/* ================================================================
+   3. UTILITÁRIOS
+================================================================ */
+
+/* Container centralizado com largura máxima */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Seções com padding vertical generoso */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+/* Cabeçalho padrão de cada seção */
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);  /* Tamanho fluido */
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+/* Itálico nos títulos — toque elegante */
+.section-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--pink-deep);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(232, 180, 200, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--gray-800);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200, 140, 160, 0.3);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--pink-deep);
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--pink);
+  transform: translateY(-2px);
+}
+
+
+/* ================================================================
+   4. NAVBAR — barra de navegação
+================================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  background-color: rgba(253, 250, 248, 0.85);  /* Semi-transparente */
+  backdrop-filter: blur(16px);                   /* Efeito vidro fosco */
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition);
+}
+
+/* Quando a navbar está "scrollada", adiciona borda */
+.navbar.scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Logo — monograma */
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.logo-dot {
+  color: var(--pink-deep);
+}
+
+/* Links de navegação */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  position: relative;
+  transition: color var(--transition);
+}
+
+/* Underline animado nos links */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--pink-deep);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Ações da navbar (toggle + hamburger) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Botão de tema */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  transition: all var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  background: var(--pink);
+}
+
+/* Ícones de sol/lua trocam conforme o tema */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* Hamburguer (só no mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--text);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+
+/* ================================================================
+   5. HERO — seção inicial
+================================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--nav-height) var(--space-md) 0;
+  overflow: hidden;
+}
+
+/* Blobs decorativos de fundo — círculos coloridos desfocados */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--pink);
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 350px;
+  height: 350px;
+  background: var(--nude);
+  bottom: -50px;
+  left: -80px;
+  animation-delay: -3s;
+}
+
+.blob-3 {
+  width: 250px;
+  height: 250px;
+  background: var(--pink-deep);
+  top: 50%;
+  left: 40%;
+  opacity: 0.15;
+  animation-delay: -5s;
+}
+
+/* Conteúdo da hero */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-lg) 0;
+  text-align: center;
+}
+
+/* Tag pequena acima do nome */
+.hero-tag {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: var(--pink);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--gray-600);
+  margin-bottom: var(--space-sm);
+}
+
+/* Nome — grande e editorial */
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 300;
+  line-height: 0.9;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--pink-deep);
+  font-weight: 400;
+}
+
+/* Frase de impacto */
+.hero-phrase {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto var(--space-md);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* Botões da hero */
+.hero-cta {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Texto lateral rotacionado (decorativo) */
+.hero-side-text {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+/* Seta de scroll */
+.scroll-arrow {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  animation: bounce 2s ease-in-out infinite;
+  display: flex;
+}
+
+.scroll-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* ================================================================
+   6. ABOUT — sobre mim
+================================================================ */
+.about {
+  background-color: var(--surface);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+/* Wrapper do card visual */
+.about-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Avatar circular */
+.about-avatar {
+  position: relative;
+  display: inline-block;
+}
+
+/* Placeholder do avatar — troque por uma <img> com sua foto! */
+.avatar-placeholder {
+  width: 260px;
+  height: 260px;
+  border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%;  /* Forma orgânica */
+  background: linear-gradient(135deg, var(--pink), var(--nude));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--pink-deep);
+  font-weight: 300;
+  box-shadow: var(--shadow-md);
+  animation: morph 8s ease-in-out infinite;         /* Forma que muda */
+}
+
+/* Badge flutuante no avatar */
+.avatar-badge {
+  position: absolute;
+  bottom: -8px;
+  right: -16px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.avatar-badge svg {
+  width: 14px;
+  height: 14px;
+  color: var(--pink-deep);
+}
+
+/* Estatísticas rápidas */
+.about-stats {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--pink-deep);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Texto do about */
+.about-text p {
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  color: var(--text) !important;
+  font-weight: 400;
+}
+
+.about-text strong {
+  color: var(--text);
+}
+
+/* Frase em destaque */
+.about-highlight {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--pink-deep) !important;
+  border-left: 3px solid var(--pink-deep);
+  padding-left: var(--space-sm);
+  line-height: 1.6;
+  margin-top: var(--space-md) !important;
+}
+
+
+/* ================================================================
+   7. SKILLS — habilidades
+================================================================ */
+.skills {
+  background-color: var(--accent-bg);
+}
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* Cada grupo de skills */
+.skill-group {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  transition: box-shadow var(--transition);
+}
+
+.skill-group:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.skill-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.skill-group-title svg {
+  width: 16px;
+  height: 16px;
+  color: var(--pink-deep);
+}
+
+/* Pills de skill com barra de progresso */
+.skill-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-pill {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pill-icon {
+  font-size: 1.1rem;
+}
+
+.skill-pill span:not(.pill-icon) {
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.pill-bar {
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+/* Barra de progresso — usa a variável --fill definida inline */
+.pill-fill {
+  height: 100%;
+  width: var(--fill);
+  background: linear-gradient(90deg, var(--pink-deep), var(--pink));
+  border-radius: var(--radius-full);
+  transform-origin: left;
+  animation: grow-bar 1.5s ease-out forwards;
+  transform: scaleX(0);
+}
+
+/* Tags de aprendizado */
+.learning-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.learning-tag {
+  padding: 0.4rem 1rem;
+  background: var(--pink);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  color: var(--gray-700);
+  transition: all var(--transition);
+}
+
+.learning-tag:hover {
+  background: var(--pink-deep);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Tags da mecânica */
+.mechanic-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mechanic-tag {
+  padding: 0.4rem 1rem;
+  background: var(--nude);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition);
+}
+
+.mechanic-tag:hover {
+  background: var(--nude);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+
+/* ================================================================
+   8. PROJECTS — projetos
+================================================================ */
+.projects {
+  background-color: var(--surface);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+/* Card de projeto */
+.project-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Linha decorativa que aparece no hover */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--pink-deep));
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  transform-origin: left;
+}
+
+.project-card:hover {
+  border-color: var(--pink-deep);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-sm);
+}
+
+.project-emoji {
+  font-size: 2rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition);
+}
+
+.project-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.project-link:hover {
+  background: var(--pink);
+  color: var(--pink-deep);
+  transform: translateY(-2px);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-tags span {
+  padding: 0.25rem 0.75rem;
+  background: var(--pink);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+/* Card "Em breve" */
+.project-card--soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: dashed;
+  border-color: var(--pink-deep);
+  background: var(--pink-soft);
+  cursor: default;
+}
+
+.project-card--soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.project-soon-inner {
+  text-align: center;
+}
+
+.soon-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.project-soon-inner h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--pink-deep);
+  margin-bottom: 0.5rem;
+}
+
+.project-soon-inner p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+
+/* ================================================================
+   9. BEYOND CODE — personalidade
+================================================================ */
+.beyond {
+  background-color: var(--accent-bg);
+}
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+/* Card "além do código" */
+.beyond-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.beyond-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.beyond-card--bela::after    { background: #ffc8d0; }
+.beyond-card--books::after   { background: #c8d4ff; }
+.beyond-card--gym::after     { background: #c8ffd4; }
+.beyond-card--music::after   { background: #ffd4c8; }
+.beyond-card--routine::after { background: #f0c8ff; }
+
+.beyond-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.beyond-card:hover::after {
+  opacity: 1;
+}
+
+.beyond-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-sm);
+}
+
+.beyond-emoji {
+  font-size: 2rem;
+}
+
+.beyond-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.beyond-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.beyond-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.beyond-footer {
+  margin-top: var(--space-sm);
+  font-size: 0.82rem;
+  color: var(--pink-deep);
+  font-weight: 500;
+}
+
+/* Lista de livros */
+.book-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-list li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.book-list li:last-child {
+  border-bottom: none;
+}
+
+/* Nota musical */
+.music-note {
+  margin-top: var(--space-sm);
+  padding: 0.6rem 1rem;
+  background: var(--pink-soft);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--pink-deep);
+  font-style: italic;
+}
+
+/* Linha do tempo da rotina */
+.routine-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.routine-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.routine-time {
+  font-weight: 500;
+  min-width: 80px;
+  color: var(--pink-deep);
+}
+
+/* Card da Bela ocupa 2 colunas na última linha */
+.beyond-card--routine {
+  grid-column: span 2;
+}
+
+
+/* ================================================================
+   10. QUOTES — frases inspiradoras
+================================================================ */
+.quotes {
+  background-color: var(--surface);
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+blockquote.quote-card {
+  background: var(--pink-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-md) var(--space-md) 2rem;
+  border-left: 4px solid var(--pink-deep);
+  transition: all var(--transition);
+  position: relative;
+}
+
+/* Aspas decorativas */
+blockquote.quote-card::before {
+  content: '"';
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--pink);
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+blockquote.quote-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background: var(--pink);
+}
+
+blockquote.quote-card p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+blockquote.quote-card footer {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+
+/* ================================================================
+   11. CONTACT — contato
+================================================================ */
+.contact {
+  background-color: var(--accent-bg);
+}
+
+.contact-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+  line-height: 1.8;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Card de contato */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 1.2rem var(--space-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition);
+  text-align: left;
+}
+
+.contact-card:hover {
+  border-color: var(--pink-deep);
+  box-shadow: var(--shadow-md);
+  transform: translateX(6px);
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pink-deep);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.contact-card:hover .contact-icon {
+  background: var(--pink-deep);
+  color: var(--white);
+}
+
+.contact-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.contact-value {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.contact-arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: transform var(--transition);
+}
+
+.contact-card:hover .contact-arrow {
+  color: var(--pink-deep);
+  transform: translate(3px, -3px);
+}
+
+
+/* ================================================================
+   12. FOOTER
+================================================================ */
+.footer {
+  padding: var(--space-md) 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.footer p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer-sub {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.heart {
+  color: var(--pink-deep);
+  animation: heartbeat 1.4s ease-in-out infinite;
+  display: inline-block;
+}
+
+
+/* ================================================================
+   13. ANIMAÇÕES
+================================================================ */
+
+/* Flutuação suave dos blobs */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-20px) scale(1.02); }
+}
+
+/* Forma orgânica do avatar muda suavemente */
+@keyframes morph {
+  0%, 100% { border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%; }
+  25%       { border-radius: 55% 45% 40% 60% / 55% 40% 60% 45%; }
+  50%       { border-radius: 45% 55% 60% 40% / 40% 60% 45% 55%; }
+  75%       { border-radius: 60% 40% 45% 55% / 60% 45% 55% 40%; }
+}
+
+/* Seta pulsante */
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Barra de progresso */
+@keyframes grow-bar {
+  to { transform: scaleX(1); }
+}
+
+/* Pulsação do ícone "em breve" */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.1); }
+}
+
+/* Coração batendo */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.2); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.15); }
+  70%       { transform: scale(1); }
+}
+
+/* ---- Animações de entrada (scroll reveal) ---- */
+
+/* Fade-in para cima — usado nos elementos da hero */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delays escalonados */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+
+/* Reveal ao rolar — controlado pelo JavaScript */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-up    { transform: translateY(40px); }
+.reveal-left  { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+
+/* Quando o elemento fica visível */
+.revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+
+/* ================================================================
+   14. DARK MODE
+================================================================ */
+[data-theme="dark"] {
+  --bg:         #1a1218;
+  --surface:    #221820;
+  --surface-2:  #2e2228;
+  --border:     #3d2d35;
+  --text:       #f0e6ec;
+  --text-muted: #9e8a94;
+  --accent-bg:  #1f161d;
+  --pink-soft:  #2a1f25;
+  --nude:       #2e2228;
+  --gray-100:   #2e2228;
+  --gray-200:   #3d2d35;
+  --gray-400:   #7a6070;
+
+  --shadow-sm:  0 2px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md:  0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg:  0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .navbar {
+  background-color: rgba(26, 18, 24, 0.85);
+}
+
+[data-theme="dark"] .hero-blob {
+  opacity: 0.15;
+}
+
+[data-theme="dark"] .avatar-placeholder {
+  background: linear-gradient(135deg, #4a2535, #3d2228);
+}
+
+[data-theme="dark"] .about-highlight {
+  color: var(--pink) !important;
+}
+
+
+/* ================================================================
+   15. RESPONSIVO — mobile first
+================================================================ */
+@media (max-width: 900px) {
+  /* Esconde os links de navegação no mobile */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--surface);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Grid de 2 para 1 coluna */
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-avatar {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-stats {
+    justify-content: center;
+  }
+
+  .about-highlight {
+    text-align: left;
+  }
+
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beyond-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beyond-card--routine {
+    grid-column: span 1;
+  }
+
+  .quotes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-side-text {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --space-xl: 4rem;
+    --space-lg: 2.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar-placeholder {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ================================================================
+   Ajustes finais — fotos reais e pequenos refinamentos
+================================================================ */
+.avatar-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%;
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: var(--shadow-md);
+  animation: morph 8s ease-in-out infinite;
+}
+
+.bela-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0.5rem 0 1rem;
+  border: 4px solid var(--pink);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 600px) {
+  .avatar-img {
+    width: 200px;
+    height: 200px;
+  }
+}
