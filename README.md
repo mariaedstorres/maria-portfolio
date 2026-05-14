@@ -1,1 +1,1 @@
-# maria.portfolio
+# maria-portfolio
