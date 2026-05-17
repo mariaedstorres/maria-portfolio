@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initScrollReveal();
   initSkillBars();
 
-  console.log('✨ Portfólio da Maria Eduarda carregado com sucesso!');
+  console.log('✨ Portfólio da Maria Torres carregado com sucesso!');
 });
 
 
@@ -245,8 +245,8 @@ function initSkillBars() {
 
 
 /* ================================================================
-   7. CURSOR PERSONALIZADO (opcional — efeito decorativo)
-   Um ponto rosa segue o cursor — pode remover se não gostar!
+   7. CURSOR PERSONALIZADO 
+   Um ponto rosa segue o cursor 
 ================================================================ */
 (function initCustomCursor() {
   // Criar o elemento do cursor
@@ -331,5 +331,9 @@ function initSkillBars() {
    8. EASTER EGG — mensagem no console para outros devs curiosos :)
 ================================================================ */
 console.log('%c🌸 Oi, dev curioso(a)!', 'font-size: 18px; color: #e8b4c8; font-weight: bold;');
-console.log('%cEsse site foi feito com muito carinho pela Maria Eduarda. ✨', 'font-size: 13px; color: #9e8a94;');
+console.log('%cEsse site foi feito com muito carinho pela Maria. ✨', 'font-size: 13px; color: #9e8a94;');
 console.log('%cSe quiser conversar sobre código ou oportunidades, dá um oi no LinkedIn!', 'font-size: 12px; color: #b8a8b2;');
+
+document.addEventListener("DOMContentLoaded", () => {
+  lucide.createIcons();
+});

@@ -51,7 +51,7 @@
   --accent-bg:  var(--pink-soft);
 
   /* Tipografia */
-  --font-display: 'Cormorant Garamond', Georgia, serif;   /* Títulos elegantes */
+  --font-display: 'Cormorant Garamond', Georgia, serif;   /* Títulos  */
   --font-body:    'DM Sans', system-ui, sans-serif;         /* Corpo legível */
 
   /* Espaçamentos */
@@ -496,8 +496,8 @@ button {
   display: inline-block;
 }
 
-/* Placeholder do avatar — troque por uma <img> com sua foto! */
-.avatar-placeholder {
+/* avatar */
+.avatar-avatar {
   width: 260px;
   height: 260px;
   border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%;  /* Forma orgânica */
@@ -1027,7 +1027,7 @@ button {
 
 
 /* ================================================================
-   10. QUOTES — frases inspiradoras
+   10. QUOTES — frases 
 ================================================================ */
 .quotes {
   background-color: var(--surface);
@@ -1436,7 +1436,7 @@ blockquote.quote-card footer {
 }
 
 /* ================================================================
-   Ajustes finais — fotos reais e pequenos refinamentos
+   Ajustes finais —
 ================================================================ */
 .avatar-img {
   width: 260px;
@@ -1464,4 +1464,10 @@ blockquote.quote-card footer {
     width: 200px;
     height: 200px;
   }
+}
+
+.contact-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #c88aa0;
 }
